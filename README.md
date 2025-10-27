@@ -1,2 +1,2 @@
 # rust-macros
-Materials for the presentation on Macros from the seminar of Rust, University of Helsinki
+In this repository, you can find the source code for the two macro examples showcased in the presentation.
