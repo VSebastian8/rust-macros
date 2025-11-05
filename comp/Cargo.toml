@@ -1,0 +1,11 @@
+[package]
+name = "comp"
+version = "0.1.0"
+edition = "2024"
+authors = ["VSebastian8"]
+license = "MPL-2.0"
+description = "Procedural macro for the list comprehension from python"
+repository = "https://github.com/VSebastian8/rust-macros/tree/master/comp"
+keywords = ["macro", "list", "comprehension"]
+
+[dependencies]
