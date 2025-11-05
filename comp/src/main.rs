@@ -32,4 +32,14 @@ fn main() {
     let wrap2 = wrap.clone();
     assert_eq!(wrap.val, wrap2.val);
     println!("{:?}", wrap2); // Wrapper { val: 0 }
+
+    // Function-Like Comp Macro
+    use comp_macro::comp;
+
+    let v: Vec<i32> = comp![x * 2 for x <- [1, 2, 3]].collect();
+    assert_eq!(v, [2, 4, 6]);
+
+    let nums = vec![12, 13, 15, 16, 17];
+    let evens: Vec<bool> = comp![num % 2 == 0 for num <- nums].collect();
+    assert_eq!(evens, [true, false, false, true, false]);
 }

@@ -9,3 +9,4 @@ repository = "https://github.com/VSebastian8/rust-macros/tree/master/comp"
 keywords = ["macro", "list", "comprehension"]
 
 [dependencies]
+comp_macro = { path = "comp_macro" }

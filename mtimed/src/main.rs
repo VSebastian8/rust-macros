@@ -1,5 +1,14 @@
 use mtimed::timed;
 
+// Function we want to benchmark
+fn fibonacci(n: i32) -> i32 {
+    if n <= 1 {
+        1
+    } else {
+        fibonacci(n - 1) + fibonacci(n - 2)
+    }
+}
+
 fn main() {
     timed! {
         2 * 3 =>
@@ -7,10 +16,11 @@ fn main() {
             println!("Multiplication result: {}", 2 * 3)
         }
     }
+    // Multiplication result: 6
+    // 2 * 3 took: 0 ms
     println!();
 
     let nums = vec![1; 1000000];
-
     let nums_sum = timed! {
         "vector sum" =>
         {
@@ -23,8 +33,14 @@ fn main() {
             sum
         }
     };
-
+    // Calculating the sum
+    // Done
+    // "vector sum" took: 4 ms
     println!("Sum: {}", nums_sum);
+    // Sum: 1000000
+
+    timed!(Fibonacci => { fibonacci(35) });
+    // Fibonacci took: 63 ms
 
     // Declarative Macros
     // print!("Hello {}!", "world");
