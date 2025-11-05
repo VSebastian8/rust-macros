@@ -40,4 +40,32 @@ println!("Sum: {}", nums_sum);
 > "vector sum" took: 5 ms \
 > Sum: 1000000
 
-### Example 2
+Macro Code - mtimed/src/lib.rs
+
+### Example 2: `comp!`
+
+**Function-Like Procedural macro** that implements a simplified list comprehension from Python
+
+```rust
+let v: Vec<i32> = comp![x * 2 for x <- [1, 2, 3]].collect();
+println!("{:?}", v);
+```
+
+> [2, 4, 6]
+
+```rust
+let nums = vec![12, 13, 15, 16, 17];
+let evens: Vec<bool> = comp![num % 2 == 0 for num <- nums].collect();
+println!(":?", evens)
+```
+
+> [true, false, false, true, false]
+
+```rust
+let sums = comp![x + y for (x, y) <- [(1, 2), (3, 4), (5, 6)]];
+println!("Sums: {:?}", sums.collect::<Vec<i32>>());
+```
+
+> Sums: [3, 7, 11]
+
+Macro Code - comp/comp_macro/src/lib.rs

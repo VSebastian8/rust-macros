@@ -42,4 +42,8 @@ fn main() {
     let nums = vec![12, 13, 15, 16, 17];
     let evens: Vec<bool> = comp![num % 2 == 0 for num <- nums].collect();
     assert_eq!(evens, [true, false, false, true, false]);
+
+    let sums = comp![x + y for (x, y) <- [(1, 2), (3, 4), (5, 6)]];
+    println!("Sums: {:?}", sums.collect::<Vec<i32>>());
+    // Sums: [3, 7, 11]
 }
